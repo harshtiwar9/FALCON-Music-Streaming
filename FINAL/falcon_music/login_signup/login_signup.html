@@ -1,0 +1,307 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html class="no-js">
+  <head>
+    <title> Login/SignUp </title>
+<!--        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <script src="/jquery/jquery-1.11.3.min.js"></script>
+        <script src="/js/bootstrap.js"></script>   -->
+        <link rel="stylesheet" type="text/css" href="/FINAL/falcon_music/extra/css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="/FINAL/falcon_music/extra/css/style3.css" />
+		<link rel="stylesheet" type="text/css" href="/FINAL/falcon_music/extra/css/animate-custom.css" />
+
+        <link rel="stylesheet" href="/FINAL/falcon_music/extra/css/bootstrap.min.css">
+        <script src="/FINAL/falcon_music/extra/jquery/jquery-1.11.3.min.js"></script>
+        <script src="/FINAL/falcon_music/extra/js/bootstrap.js"></script>
+        <style>
+
+            /*modal-css */
+          .modal-header, h4, .close
+           {
+              background-color: #5cb85c;
+              color:white !important;
+              text-align: center;
+              font-size: 30px;
+           }
+
+          .modal-footer
+          {
+              background-color: #f9f9f9;
+          }
+
+          /* for Profile Pic */
+                      .js .inputfile {
+                width: 0.1px;
+                height: 0.1px;
+                opacity: 0;
+                overflow: hidden;
+                position: absolute;
+                z-index: -1;
+            }
+
+            .inputfile + label {
+                max-width: 80%;
+                font-size: 1.25rem;
+                /* 20px */
+                font-weight: 700;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                cursor: pointer;
+                display: inline-block;
+                overflow: hidden;
+                padding: 0.625rem 1.25rem;
+                /* 10px 20px */
+            }
+
+            .no-js .inputfile + label {
+                display: none;
+            }
+
+            .inputfile:focus + label,
+            .inputfile.has-focus + label {
+                outline: 1px dotted #000;
+                outline: -webkit-focus-ring-color auto 5px;
+            }
+
+            .inputfile + label * {
+                /* pointer-events: none; */
+                /* in case of FastClick lib use */
+            }
+
+            .inputfile + label svg {
+                width: 1em;
+                height: 1em;
+                vertical-align: middle;
+                fill: currentColor;
+                margin-top: -0.25em;
+                /* 4px */
+                margin-right: 0.25em;
+                /* 4px */
+            }
+
+            /* style 4 */
+
+            .inputfile-4 + label {
+                color: #d3394c;
+            }
+
+            .inputfile-4:focus + label,
+            .inputfile-4.has-focus + label,
+            .inputfile-4 + label:hover {
+                color: #722040;
+            }
+
+            .inputfile-4 + label figure {
+                width: 90px;
+                height: 90px;
+                border-radius: 50%;
+                background-color: #d3394c;
+                display: block;
+                padding: 20px;
+                margin: 0 auto 10px;
+            }
+
+            .inputfile-4:focus + label figure,
+            .inputfile-4.has-focus + label figure,
+            .inputfile-4 + label:hover figure {
+                background-color: #722040;
+            }
+
+            .inputfile-4 + label svg {
+                width: 100%;
+                height: 100%;
+                fill: #f1e5e6;
+            }
+
+            .inputfile-4 + label span {
+                font-size: 17px;
+            } 
+        </style>
+        
+        <script>
+            /* function for input type='file' styling */
+            (function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);
+        </script>
+
+    </head>
+    <body bgcolor="white">
+
+        <center> <br> <br> <br>
+        <section>
+                <div id="container_demo" >
+                    <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
+                    <a class="hiddenanchor" id="toregister"></a>
+                    <a class="hiddenanchor" id="tologin"></a>
+                    <div id="wrapper">
+
+                         <!-- Login Form -->
+                        <div id="login" class="animate form">
+
+                            <div class="modal-header" style="padding:35px 50px;">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              <h4><span class="glyphicon glyphicon-lock"></span> Login </h4>
+                            </div>
+
+                            <div class="modal-body" style="padding:40px 50px;">
+                              <form action="/FINAL/falcon_music/login_signup/login_logic.php" method="POST" role="form">
+                                <div class="form-group">
+                                  <label for="mobile_no"><span class="glyphicon glyphicon-user"></span> Mobile No. : </label>
+                                  <input type="tel" class="form-control" name="mob" pattern="[0-9]{10}" maxlength="10" title="10 numbers" required placeholder="Enter Mobile No."/>
+                                </div>
+                                <div class="form-group">
+                                  <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password : </label>
+                                  <input type="password" class="form-control" name="pwd" maxlength="20" required placeholder="Enter Password"/>
+                                </div>
+                                  <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+                              </form>
+                            </div>
+
+                            <div class="modal-footer">
+                              <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                              <p>Not a member? <a href="#toregister" class="to_register">Sign Up</a></p>
+                              <p>Forgot <a href="#">Password?</a></p>
+                            </div>
+
+                         </div>
+
+                          <!--  Sign Up Form ---->
+                        <div id="register" class="animate form" style="width: 450">
+                            <form enctype="multipart/form-data" action="/FINAL/falcon_music/login_signup/verify.php" onsubmit="uppic()" method="get" autocomplete="on">
+                                <h1> Sign up </h1>
+                                
+                                <center>
+                                    <b> <label for="firstname" class="uname" style="font-size: 17px">Profile Pic :</label> <b> <br>
+                                    <input type="file" name="propic" id="propic" class="inputfile inputfile-4" accept="image/*"/>
+                                    <label for="propic">
+                                    <figure><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                                            <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+                                            </svg>
+                                    </figure> 
+                                    <span>Choose a file&hellip;</span>
+                                    </label>
+                                </center>
+                                <p>
+                                    <label for="firstname" class="uname" data-icon="u">First Name :</label>
+                                    <input type="text" id="fnm" name="fnm" required placeholder="first name" pattern="[A-Za-z]{2,}" maxlength="10" title="Minimum 2 Letters" />
+                                </p>
+                                <p>
+                                    <label for="lastname" class="uname" data-icon="u">Last Name :</label>
+                                    <input type="text" id="lnm" name="lnm" required placeholder="last name" pattern="[A-Za-z]{2,}" maxlength="12" title="Minimum 2 Letters" required />
+                                </p>
+                                <p>
+                                    <label for="Gender" class="uname">Gender :</label>
+                                    &nbsp;&nbsp<input type="checkbox" name="gen" value="Male" class="chkbx" checked /> &nbsp;<label>Male</label> &nbsp;&nbsp;<input type="checkbox" name="gen" value="Female" class="chkbx" /> &nbsp;<label>Female</label>
+                                </p>
+                                <p>
+                                    <label for="mobileno" class="mobile" data-icon="M" > Mobile No. : </label>
+                                    <input type="tel" name="mob" id="txtMob" required placeholder="eg. +00-000-00-000" pattern="[0-9]{10}" maxlength="10" title="10 numbers" onchange="validate(this)" />
+                                </p>
+                                <p>
+                                    <label for="password" class="youpasswd" data-icon="p"> Password : </label>
+                                    <input type="password" id="txtpassword" name="pwd" placeholder="eg. X8df!90EO" maxlength="20" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,20}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters" required />
+                                </p>
+                                <p class="signup button">
+									<input type="submit" id="submit" value="Sign up" style="color:rgb(60,156,178)" disabled/> &nbsp;&nbsp;<label id="errMob"/>
+								</p>
+                                <p class="change_link">
+									Already a member ?
+									<a href="#tologin" class="to_register"> Go and log in </a>
+								</p>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            </center>
+
+     <script src="/FINAL/falcon_music/extra/js/custom-file-input.js"></script> <!-- for proPic -->
+     <script>
+         
+        // for gender checkbox
+         $('.chkbx').click(function()
+         {
+            $('.chkbx').each(function()
+            {
+                $(this).prop('checked', false);
+            });
+            $(this).prop('checked', true);
+         });
+
+         
+          function validate(e)
+            {
+
+               // e=e || window.event;
+                var myField = e;//.target || e.srcElement;
+
+                var xmlhttp;
+
+                if(window.XMLHttpRequest)
+                    {
+                        xmlhttp = new XMLHttpRequest();
+                    }
+
+                else
+                    {
+                        xmlhttp = new ActiveXObject("Microsoft.XMLHttp");
+                    }
+
+
+                xmlhttp.open("GET", "/FINAL/falcon_music/login_signup/regValidation_logic.php?"+myField.id+"="+myField.value, true);
+
+               xmlhttp.onreadystatechange=function()
+                {
+
+                    if(xmlhttp.readyState==4 && xmlhttp.status==200)
+                    {
+
+                        var response = xmlhttp.responseText.split("||");
+
+                        var divname = "err"+myField.id.substring(3);
+                        var mydiv = document.getElementById(divname);
+
+                        // mydiv.innerHTML = xmlhttp.responseText;
+                       if(!eval(response[0]))
+                        {
+                            mydiv.innerHTML = response[1];
+                            myField.valid=false;
+                        }
+
+                        else
+                        {
+                            myField.valid=true;
+                            mydiv.innerHTML=" ";
+                        }
+
+                        var mybutton = document.getElementById("submit");
+                        mybutton.disabled=!isValidForm();
+
+                        var txtMob = document.getElementById("txtMob");
+                        if(txtMob.valid)
+                        {
+                            mybutton.style.color = "white";
+                        }
+
+                        else
+                        {
+                            mybutton.style.color = "rgb(60,156,178)";
+                        }
+                    }
+                }
+                xmlhttp.send();
+            }
+
+                function isValidForm()
+                {
+                    var f1 = document.getElementById("txtMob");
+//                    var f2 = document.getElementById("txtUnme");
+                    return(f1.valid);
+                }
+     </script>
+    </body>
+</html>
+	
